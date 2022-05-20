@@ -14,10 +14,10 @@ class AddMoreFieldsToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('city');
-            $table->string('state');
-            $table->string('phone');
-            $table->integer('active');
+            $table->string('city')->default('Los Angeles');
+            $table->string('state')->default('California');
+            $table->string('phone')->default('7003345328');
+            $table->integer('active')->default(1);
         });
     }
 
