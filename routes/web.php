@@ -20,3 +20,5 @@ Route::get('/', function () {
 
 
 Route::get('/users', [UserController::class, 'index']);
+
+Route::get('/search', [UserController::class, 'search']);

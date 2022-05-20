@@ -46,8 +46,21 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+
     public function posts()
     {
         return $this->hasMany(Post::class);
+    }
+
+
+    public function scopeSearch($query, $q)
+    {
+        if ($q === null) return $query;
+
+        return $query
+            ->where('name', 'LIKE', "%{$q}%")
+            ->orWhere('age', 'LIKE', "%{$q}%")
+            ->orWhere('location', 'LIKE', "%{$q}%")
+            ->orWhere('relationships', 'LIKE', "%{$q}%");
     }
 }
